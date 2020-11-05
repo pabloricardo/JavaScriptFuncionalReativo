@@ -9,21 +9,19 @@ const simbolos = [
     '</i>', '\r', '[', ']', '(', ')'
 ]
 
-const mesclarElementos = array => array.join(' ')
-const separarPorLinha = todoConteudo => todoConteudo.split('\n')
-const separarPorPalaras = todoConteudo => todoConteudo.split(' ')
+
 
 fn.lerDiretorio(caminho)
     .then(arquivos => fn.elementosTerminadosCom('.srt', arquivos))
     .then(fn.lerArquivos)
-    .then(mesclarElementos)
-    .then(separarPorLinha)
+    .then(fn.mesclarElementos)
+    .then(fn.separarPor('\n'))
     .then(fn.removerElementosSeVazio)
     .then(linhas => fn.removerElementosSeIncluir('-->', linhas))
     .then(fn.removerElementosSeApenasNumero)
     .then(arquivo => fn.removerSimbolos(simbolos, arquivo))
-    .then(mesclarElementos)
-    .then(separarPorPalaras)
+    .then(fn.mesclarElementos)
+    .then(fn.separarPor(' '))
     .then(fn.removerElementosSeVazio)
     .then(console.log)
 

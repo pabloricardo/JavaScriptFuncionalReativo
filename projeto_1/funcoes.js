@@ -59,6 +59,15 @@ function removerSimbolos(simbolos, array){
 
 }
 
+function mesclarElementos(array){
+   return array.join(' ')
+}
+
+function separarPor(simbolo) {
+    return function(texto){
+        return texto.split(simbolo)
+    }
+}
 module.exports = {
     lerDiretorio,
     lerArquivos,
@@ -66,5 +75,7 @@ module.exports = {
     removerElementosSeVazio,
     removerElementosSeIncluir,
     removerElementosSeApenasNumero,
-    removerSimbolos
+    removerSimbolos,
+    mesclarElementos,
+    separarPor
 }
