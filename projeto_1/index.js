@@ -1,3 +1,4 @@
+const { SSL_OP_NO_TLSv1_1 } = require('constants')
 const path = require('path')
 const { removerElementosSeVazio } = require('./funcoes')
 const fn = require('./funcoes')
@@ -8,7 +9,6 @@ const simbolos = [
     '.', '?', '-', ',', '"', '♪', '_', '<i>',
     '</i>', '\r', '[', ']', '(', ')'
 ]
-
 
 
 fn.lerDiretorio(caminho)
@@ -25,5 +25,6 @@ fn.lerDiretorio(caminho)
     .then(fn.removerElementosSeVazio)
     .then(fn.removerElementosSeApenasNumero)
     .then(fn.agruparElementos)
+    .then(fn.ordenarPorAtribNumerico('qtde', 'desc'))
     .then(console.log)
 
