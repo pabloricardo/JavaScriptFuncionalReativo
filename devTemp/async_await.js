@@ -1,10 +1,7 @@
-const { promises } = require("fs");
-const { resolve } = require("path");
-
 async function esperarPor(tempo = 2000) {
     return new Promise(resolve =>
-        setTimeout(
-            resolve, tempo
+        setTimeout(() =>
+            resolve(), tempo
         )
     )
 }
