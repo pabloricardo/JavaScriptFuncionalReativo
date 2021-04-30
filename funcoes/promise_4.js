@@ -24,5 +24,6 @@ function gerarVariosNumeros() {
     ])
 }
 
-gerarVariosNumeros().then(console.log)
+console.time('promise')
+gerarVariosNumeros().then(console.log).then(()=>console.timeEnd('promise'))
 
